@@ -1,9 +1,12 @@
 package com.jpabook.jpashop.domain.item;
 
+import com.jpabook.jpashop.domain.Category;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 //상속관계 전략 싱클테이블 전략
@@ -22,4 +25,7 @@ public abstract class Item {
 
     private int price;
     private int stockQuantity;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 }
