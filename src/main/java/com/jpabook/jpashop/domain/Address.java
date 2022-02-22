@@ -12,7 +12,7 @@ public class Address {
     private String street;
     private String zipcode;
 
-    //JPA는 기본 생성자가 필요
+    //JPA는 기본 생성자가 필
     protected Address() {
     }
 

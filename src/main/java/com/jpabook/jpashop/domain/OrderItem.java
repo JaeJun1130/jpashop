@@ -14,11 +14,12 @@ public class OrderItem {
     @Column(name = "order_idtem_id")
     private Long id;
 
-    @ManyToOne
+    //XToOne 은 defaultr가 즉시로딩, 지연로딩으로 바꿔줘야함
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 
