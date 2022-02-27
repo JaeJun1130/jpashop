@@ -1,7 +1,9 @@
 package com.jpabook.jpashop.domain;
 
 import com.jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.aspectj.weaver.ast.Or;
 
@@ -9,13 +11,14 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id @GeneratedValue
     @Column(name = "order_idtem_id")
     private Long id;
 
-    //XToOne 은 defaultr가 즉시로딩, 지연로딩으로 바꿔줘야함
+    //XToOne 은 default 가 즉시로딩, 지연로딩으로 바꿔줘야함
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
